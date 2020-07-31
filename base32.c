@@ -54,7 +54,7 @@ int base32_encode(const uint8_t *input, const int input_len,
     memset(input_buf, 0, input_buf_len);
     memcpy(input_buf, input, input_len);
 
-    int output_buf_len = input_buf_len * 5 / 8;
+    int output_buf_len = input_buf_len * 8 / 5;
     uint8_t *output_buf = malloc(sizeof(uint8_t) * output_buf_len);
     memset(output_buf, 0, output_buf_len);
 
@@ -96,7 +96,7 @@ int base32_decode(const uint8_t *input, const int input_len,
     memset(input_buf, '0', input_buf_len);
     memcpy(input_buf, input, input_len);
 
-    int output_buf_len = input_buf_len * 8 / 5;
+    int output_buf_len = input_buf_len * 5 / 8;
     uint8_t *output_buf = malloc(sizeof(uint8_t) * output_buf_len);
     memset(output_buf, 0, output_buf_len);
 
